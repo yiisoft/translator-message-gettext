@@ -1,6 +1,6 @@
 <?php
 
-namespace Yii\I18n;
+namespace Yiisoft\I18n;
 
 /**
  * GettextMoFile represents an MO Gettext message file.

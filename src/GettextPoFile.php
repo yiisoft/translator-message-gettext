@@ -1,5 +1,5 @@
 <?php
-namespace Yii\I18n;
+namespace Yiisoft\I18n;
 
 /**
  * GettextPoFile represents a PO Gettext message file.
