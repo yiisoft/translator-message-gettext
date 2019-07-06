@@ -31,7 +31,7 @@ namespace Yiisoft\I18n;
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-final class GettextMoFile implements MessageWriter, MessageReader
+final class GettextMoFile implements MessageWriterInterface, MessageReaderInterface
 {
     private $path;
 

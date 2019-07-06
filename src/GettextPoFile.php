@@ -4,7 +4,7 @@ namespace Yiisoft\I18n;
 /**
  * GettextPoFile represents a PO Gettext message file.
  */
-final class GettextPoFile implements MessageWriter, MessageReader
+final class GettextPoFile implements MessageWriterInterface, MessageReaderInterface
 {
     private $path;
 
