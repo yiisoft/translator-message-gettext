@@ -93,7 +93,7 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
      * @param string $string message to be encoded
      * @return string the encoded message
      */
-    private function encode($string)
+    private function encode(string $string): string
     {
         return str_replace(
             ['"', "\n", "\t", "\r"],
@@ -107,7 +107,7 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
      * @param string $string message to be decoded
      * @return string the decoded message
      */
-    private function decode($string)
+    private function decode(string $string): string
     {
         $string = preg_replace(
             ['/"\s+"/', '/\\\\n/', '/\\\\r/', '/\\\\t/', '/\\\\"/'],
