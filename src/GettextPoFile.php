@@ -41,7 +41,7 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
 
             $messages = [];
             for ($i = 0; $i < $matchCount; ++$i) {
-                if ($matches[2][$i] === $context) {
+                if ($matches[2][$i] === $context || $context === null) {
                     $id = $this->decode($matches[3][$i]);
                     $messages[$id] = $this->decode($matches[4][$i]);
                 }
