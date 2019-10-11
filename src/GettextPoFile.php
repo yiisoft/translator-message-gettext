@@ -21,8 +21,9 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
      * Loads messages from a PO file.
      * @param string $filePath file path
      * @param string $context message context
-     * @return array message translations. Array keys are source messages and array values are translated messages:
-     * source message => translated message.
+     * @return array message translations. Array keys are the message id's prefixed with the 
+     * context with chr(4) as the separator and array values are the message strings:
+     * context chr(4) message id => message string.
      */
     public function all($context = null): array
     {
@@ -42,7 +43,7 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
             $messages = [];
             for ($i = 0; $i < $matchCount; ++$i) {
                 if ($matches[2][$i] === $context || $context === null) {
-                    $id = $this->decode($matches[3][$i]);
+                    $id = $matches[2][$i] . chr(4) . $this->decode($matches[3][$i]);
                     $messages[$id] = $this->decode($matches[4][$i]);
                 }
             }
@@ -121,6 +122,7 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
     public function one(string $id, $context = null): ?string
     {
         $messages = $this->all($context);
+        $id = $context . chr(4) . $id;
         return $messages[$id] ?? null;
     }
 
