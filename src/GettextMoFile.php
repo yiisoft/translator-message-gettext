@@ -127,7 +127,6 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
             @fclose($fileHandle);
 
             $this->messages = $messages;
-
         }
 
         return $this->messages;

@@ -21,7 +21,7 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
      * Loads messages from a PO file.
      * @param string $filePath file path
      * @param string $context message context
-     * @return array message translations. Array keys are the message id's prefixed with the 
+     * @return array message translations. Array keys are the message id's prefixed with the
      * context with chr(4) as the separator and array values are the message strings:
      * context chr(4) message id => message string.
      */
