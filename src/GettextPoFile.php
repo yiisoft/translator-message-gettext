@@ -2,6 +2,9 @@
 
 namespace Yiisoft\I18n\Message;
 
+use Yiisoft\I18n\MessageReaderInterface;
+use Yiisoft\I18n\MessageWriterInterface;
+
 /**
  * GettextPoFile represents a PO Gettext message file.
  */
