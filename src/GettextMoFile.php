@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yiisoft\I18n\Message;
 
 /**
@@ -51,7 +53,9 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Loads messages from an MO file.
+     *
      * @param mixed $context message context
+     *
      * @return array message translations. Array keys are source messages and array values are translated messages:
      * source message => translated message.
      */
@@ -134,6 +138,7 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Saves messages to an MO file.
+     *
      * @param array $messages message translations. Array keys are source messages and array values are
      * translated messages: source message => translated message. Note if the message has a context,
      * the message ID must be prefixed with the context with chr(4) as the separator.
@@ -204,8 +209,10 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Reads one or several bytes.
+     *
      * @param resource $fileHandle to read from
      * @param int $byteCount to be read
+     *
      * @return string bytes
      */
     private function readBytes($fileHandle, $byteCount = 1)
@@ -219,8 +226,10 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Write bytes.
+     *
      * @param resource $fileHandle to write to
      * @param string $bytes to be written
+     *
      * @return int how many bytes are written
      */
     private function writeBytes($fileHandle, $bytes)
@@ -230,7 +239,9 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Reads a 4-byte integer.
+     *
      * @param resource $fileHandle to read from
+     *
      * @return int the result
      */
     private function readInteger($fileHandle)
@@ -242,8 +253,10 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Writes a 4-byte integer.
+     *
      * @param resource $fileHandle to write to
      * @param int $integer to be written
+     *
      * @return int how many bytes are written
      */
     private function writeInteger($fileHandle, $integer)
@@ -253,9 +266,11 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Reads a string.
+     *
      * @param resource $fileHandle file handle
      * @param int $length of the string
      * @param int $offset of the string in the file. If null, it reads from the current position.
+     *
      * @return string the result
      */
     private function readString($fileHandle, $length, $offset = null)
@@ -269,8 +284,10 @@ final class GettextMoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Writes a string.
+     *
      * @param resource $fileHandle to write to
      * @param string $string to be written
+     *
      * @return int how many bytes are written
      */
     private function writeString($fileHandle, $string)
