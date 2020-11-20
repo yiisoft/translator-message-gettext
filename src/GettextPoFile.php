@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yiisoft\I18n\Message;
 
 use Yiisoft\I18n\MessageReaderInterface;
@@ -20,11 +22,12 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
         $this->path = $path;
     }
 
-
     /**
      * Loads messages from a PO file.
+     *
      * @param string $filePath file path
      * @param string $context message context
+     *
      * @return array message translations. Array keys are the message id's prefixed with the
      * context with chr(4) as the separator and array values are the message strings:
      * context chr(4) message id => message string.
@@ -60,6 +63,7 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Saves messages to a PO file.
+     *
      * @param array $messages message translations. Array keys are source messages and array values are
      * translated messages: source message => translated message. Note if the message has a context,
      * the message ID must be prefixed with the context with chr(4) as the separator.
@@ -95,7 +99,9 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Encodes special characters in a message.
+     *
      * @param string $string message to be encoded
+     *
      * @return string the encoded message
      */
     private function encode(string $string): string
@@ -109,7 +115,9 @@ final class GettextPoFile implements MessageWriterInterface, MessageReaderInterf
 
     /**
      * Decodes special characters in a message.
+     *
      * @param string $string message to be decoded
+     *
      * @return string the decoded message
      */
     private function decode(string $string): string
