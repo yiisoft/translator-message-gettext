@@ -31,7 +31,7 @@ final class MessageSourceTest extends TestCase
     public function testRead(string $expected, string $id, array $params = []): void
     {
         $category = 'messages';
-        $locale = PHP_OS_FAMILY === "Windows" ? 'en-US' : 'en_US';
+        $locale = PHP_OS_FAMILY === 'Windows' ? 'en-US' : 'en_US';
         $messageSource = new MessageSource(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locale');
 
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
@@ -43,7 +43,7 @@ final class MessageSourceTest extends TestCase
     public function testReadWithoutCodepage(string $expected, string $id, array $params = []): void
     {
         $category = 'messages';
-        $locale = PHP_OS_FAMILY === "Windows" ? 'en-US' : 'en_US';
+        $locale = PHP_OS_FAMILY === 'Windows' ? 'en-US' : 'en_US';
         $messageSource = new MessageSource(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locale');
 
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
