@@ -32,7 +32,7 @@ final class MessageSourceTest extends TestCase
     {
         $category = 'messages';
         $locale = 'en_US.utf8';
-        $messageSource = new MessageSource(__DIR__ . DIRECTORY_SEPARATOR . 'data/locale');
+        $messageSource = new MessageSource(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locale');
 
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
     }
@@ -44,7 +44,7 @@ final class MessageSourceTest extends TestCase
     {
         $category = 'messages';
         $locale = 'en_US';
-        $messageSource = new MessageSource(__DIR__ . DIRECTORY_SEPARATOR . 'data/locale');
+        $messageSource = new MessageSource(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'locale');
 
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
     }
