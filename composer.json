@@ -1,7 +1,7 @@
 {
-    "name": "yiisoft/i18n-message-gettext",
+    "name": "yiisoft/translator-message-gettext",
     "type": "library",
-    "description": "Yii i18n gettext message storage",
+    "description": "Yii translator gettext message storage",
     "keywords": [
         "i18n",
         "translation",
@@ -12,15 +12,16 @@
     "homepage": "http://www.yiiframework.com/",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/i18n-message-gettext/issues?state=open",
+        "issues": "https://github.com/yiisoft/translator-message-gettext/issues?state=open",
         "forum": "http://www.yiiframework.com/forum/",
         "wiki": "http://www.yiiframework.com/wiki/",
         "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/i18n-message-gettext"
+        "source": "https://github.com/yiisoft/translator-message-gettext"
     },
     "require": {
         "php": "^7.4|^8.0",
-        "yiisoft/i18n": "3.0.x-dev"
+        "yiisoft/translator": "3.0.x-dev",
+        "ext-gettext": "*"
     },
     "require-dev": {
         "phan/phan": "^3.0",
@@ -31,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Yiisoft\\I18n\\Message\\": "src"
+            "Yiisoft\\Translator\\Message\\Gettext\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Yiisoft\\I18n\\Tests\\": "tests"
+            "Yiisoft\\Translator\\Message\\Gettext\\Tests\\": "tests"
         }
     },
     "extra": {
