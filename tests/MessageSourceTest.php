@@ -14,14 +14,14 @@ final class MessageSourceTest extends TestCase
         return [
             ['nothing', 'nothing'],
             ['Hello world', 'HELLO_WORLD'],
-            ['%s day(1,21,31)', '%s day'],
-            ['%s days(0,5,6,7)', '%s day', ['n' => 0]],
-            ['%s day(1,21,31)', '%s day', [1]],
-            ['%s days(2,3,4,22)', '%s day', [2]],
-            ['%s days(0,5,6,7)', '%s day', [5]],
-            ['%s days(0,5,6,7)', '%s day', [10]],
-            ['%s day(1,21,31)', '%s day', [21]],
-            ['%s days(2,3,4,22)', '%s day', [22]],
+            ['{n} day(1,21,31)', '{n} day'],
+            ['{n} days(0,5,6,7)', '{n} day', ['n' => 0]],
+            ['{n} day(1,21,31)', '{n} day', [1]],
+            ['{n} days(2,3,4,22)', '{n} day', [2]],
+            ['{n} days(0,5,6,7)', '{n} day', [5]],
+            ['{n} days(0,5,6,7)', '{n} day', [10]],
+            ['{n} day(1,21,31)', '{n} day', [21]],
+            ['{n} days(2,3,4,22)', '{n} day', [22]],
         ];
     }
 
