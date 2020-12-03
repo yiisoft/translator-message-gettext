@@ -9,18 +9,18 @@ use Yiisoft\Translator\MessageReaderInterface;
 final class MessageSource implements MessageReaderInterface
 {
     private string $path;
-    private array $bindedDomains = [];
+    private array $boundDomains = [];
 
     public function __construct(string $path)
     {
         if (!file_exists($path) || !is_dir($path)) {
-            throw new \RuntimeException(sprintf('Directory "%s" was not exist', $path));
+            throw new \RuntimeException(sprintf('Directory "%s" does not exist', $path));
         }
         $this->path = $path;
     }
 
     /**
-     * function use first parameter as $n for plural if first value - is integer value
+     * We use first parameter as `$n` for plurals if its value type is int.
      */
     public function getMessage(string $id, string $category, string $locale, array $parameters = []): ?string
     {
@@ -35,7 +35,7 @@ final class MessageSource implements MessageReaderInterface
 
     private function bindDomain(string $category): void
     {
-        if (!isset($this->bindedDomains[$category])) {
+        if (!isset($this->boundDomains[$category])) {
             bindtextdomain($category, $this->path);
         }
     }
@@ -43,7 +43,7 @@ final class MessageSource implements MessageReaderInterface
     private function setLocale(string $locale): void
     {
         if (!setlocale(LC_ALL, $locale)) {
-            throw new \RuntimeException(sprintf('Locale "%s" cannot be setted', $locale));
+            throw new \RuntimeException(sprintf('Locale "%s" cannot be set.', $locale));
         }
     }
 }
