@@ -14,12 +14,14 @@ final class MessageSource implements MessageReaderInterface
     public function __construct(string $path)
     {
         if (!file_exists($path) || !is_dir($path)) {
-            throw new \RuntimeException(sprintf('Directory "%s" does not exist', $path));
+            throw new \RuntimeException(sprintf('Directory "%s" does not exist.', $path));
         }
         $this->path = $path;
     }
 
     /**
+     * {@inheritdoc}
+     *
      * We use first parameter as `$n` for plurals if its value type is int.
      */
     public function getMessage(string $id, string $category, string $locale, array $parameters = []): ?string
