@@ -22,6 +22,10 @@ final class MessageSourceTest extends TestCase
             ['{n} days(0,5,6,7)', '{n} day', [10]],
             ['{n} day(1,21,31)', '{n} day', [21]],
             ['{n} days(2,3,4,22)', '{n} day', [22]],
+            ['{n} days(2,3,4,22)', '{n} day', [22, 'int' => 1]],
+            ['{n} day(1,21,31)', '{n} day', ['int' => 1, 2]],
+            ['{n} day(1,21,31)', '{n} day', ['int' => 1, 5]],
+            ['{n} day(1,21,31)', '{n} day', ['string' => '', 2]],
         ];
     }
 
@@ -31,7 +35,7 @@ final class MessageSourceTest extends TestCase
     public function testRead(string $expected, string $id, array $params = []): void
     {
         $category = 'messages';
-        $locale = DIRECTORY_SEPARATOR === '\\' ? 'en-US' : 'en_US';
+        $locale = DIRECTORY_SEPARATOR === '\\' ? 'en-US.UTF-8' : 'en_US.UTF-8';
         $messageSource = new MessageSource(__DIR__ . '/data/locale');
 
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
@@ -43,7 +47,7 @@ final class MessageSourceTest extends TestCase
     public function testReadWithoutCodepage(string $expected, string $id, array $params = []): void
     {
         $category = 'messages';
-        $locale = DIRECTORY_SEPARATOR === '\\' ? 'en-US' : 'en_US';
+        $locale = DIRECTORY_SEPARATOR === '\\' ? 'en-US.UTF-8' : 'en_US.UTF-8';
         $messageSource = new MessageSource(__DIR__ . '/data/locale');
 
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
