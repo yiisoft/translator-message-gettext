@@ -29,7 +29,7 @@ final class MessageSource implements MessageReaderInterface
         $this->bindDomain($category);
         $this->setLocale($locale);
         $n = current($parameters);
-        if ($n === false) {
+        if (is_int($n) === false) {
             return dgettext($category, $id);
         }
         return dngettext($category, $id, $id, $n);
