@@ -52,4 +52,20 @@ final class MessageSourceTest extends TestCase
 
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
     }
+
+    public function testIsDir(): void
+    {
+        $this->expectException(\RuntimeException::class);
+        new MessageSource(__DIR__ . 'NOT_EXIST_DIRECTORY');
+    }
+
+    public function testNonExistingLocale(): void
+    {
+        $this->expectException(\RuntimeException::class);
+        $category = 'messages';
+        $locale = 'FAIL_LOCALE';
+        $messageSource = new MessageSource(__DIR__ . '/data/locale');
+
+        $this->assertEquals('test', $messageSource->getMessage('test', $category, $locale, []));
+    }
 }
