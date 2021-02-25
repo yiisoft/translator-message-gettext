@@ -63,7 +63,7 @@ final class MessageSourceTest extends TestCase
     {
         $this->expectException(\RuntimeException::class);
         $category = 'messages';
-        $locale = DIRECTORY_SEPARATOR === '\\' ? 'en-JP.UTF-8' : 'en_JP.UTF-8';
+        $locale = 'FAIL_LOCALE';
         $messageSource = new MessageSource(__DIR__ . '/data/locale');
 
         $this->assertEquals('test', $messageSource->getMessage('test', $category, $locale, []));
