@@ -13,7 +13,7 @@ final class MessageSource implements MessageReaderInterface
 
     public function __construct(string $path)
     {
-        if (!file_exists($path) || !is_dir($path)) {
+        if (!is_dir($path)) {
             throw new \RuntimeException(sprintf('Directory "%s" does not exist.', $path));
         }
         $this->path = $path;
