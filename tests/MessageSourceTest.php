@@ -59,7 +59,7 @@ final class MessageSourceTest extends TestCase
         new MessageSource(__DIR__ . 'NOT_EXIST_DIRECTORY');
     }
 
-    public function testNotExistLocale(): void
+    public function testNonExistingLocale(): void
     {
         $this->expectException(\RuntimeException::class);
         $category = 'messages';
