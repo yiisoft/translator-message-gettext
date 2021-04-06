@@ -37,7 +37,7 @@ final class MessageSource implements MessageReaderInterface
 
     public function getMessages(string $category, string $locale): array
     {
-        throw new \RuntimeException('Function not allowed for this package.');
+        throw new \RuntimeException('Unable to get all messages from gettext.');
     }
 
     private function bindDomain(string $category): void
