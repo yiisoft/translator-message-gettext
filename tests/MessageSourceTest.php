@@ -68,4 +68,15 @@ final class MessageSourceTest extends TestCase
 
         $this->assertEquals('test', $messageSource->getMessage('test', $category, $locale, []));
     }
+
+    public function testReadMessages(): void
+    {
+        $this->expectException(\RuntimeException::class);
+
+        $category = 'messages';
+        $locale = 'FAIL_LOCALE';
+        $messageSource = new MessageSource(__DIR__ . '/data/locale');
+
+        $messageSource->getMessages($category, $locale);
+    }
 }

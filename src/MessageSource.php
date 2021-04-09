@@ -35,6 +35,11 @@ final class MessageSource implements MessageReaderInterface
         return dngettext($category, $id, $id, $n);
     }
 
+    public function getMessages(string $category, string $locale): array
+    {
+        throw new \RuntimeException('Unable to get all messages from gettext.');
+    }
+
     private function bindDomain(string $category): void
     {
         if (!isset($this->boundDomains[$category])) {
