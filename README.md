@@ -53,7 +53,7 @@ return [
 ```
 
 ### Attention
-On using gettext, you need configure `locale` for package yiisoft/translator according to your OS requirement:
+When using gettext, `locale` depends on your OS requirement:
 * for Windows `'locale' => 'en-US.UTF-8'`
 * for Linux  `'locale' => 'en_US.UTF-8'`
 
