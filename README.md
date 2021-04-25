@@ -19,6 +19,44 @@ The preferred way to install this package is through [Composer](https://getcompo
 composer require yiisoft/translator-message-gettext
 ```
 
+## Configuration
+
+In case you use [`yiisoft/config`](http://github.com/yiisoft/config), you will get configuration automatically. If not, the following DI container configuration is necessary:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Yiisoft\Translator\MessageReaderInterface;
+use Yiisoft\Translator\Message\Gettext\MessageSource;
+use Yiisoft\Aliases\Aliases;
+
+return [
+    MessageReaderInterface::class => [
+        'class' => MessageSource::class,
+        '__construct()' => [
+            fn (Aliases $aliases) => $aliases->get('@message'),
+        ],
+    ],
+];
+```
+
+**Note:**  You can use absolutely path to translation files, if you not use [`yiisoft/aliases`](https://github.com/yiisoft/aliases)
+```php
+    MessageReaderInterface::class => [
+        'class' => MessageSource::class,
+        '__construct()' => [
+            '/var/www/app/resourse/messages',
+        ],
+    ],
+```
+
+### Attention
+On using gettext, you need configure `locale` for package yiisoft/translator according to your OS requirement:
+* for Windows `'locale' => 'en-US.UTF-8'`
+* for Linux  `'locale' => 'en_US.UTF-8'`
+
 ## General usage
 
 ### Create of instance of MessageSource
