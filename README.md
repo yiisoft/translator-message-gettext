@@ -42,7 +42,7 @@ return [
 ];
 ```
 
-**Note:**  You can use absolutely path to translation files, if you not use [`yiisoft/aliases`](https://github.com/yiisoft/aliases)
+**Note:**  You can use absolute path to translation files in case you don't want to use [`yiisoft/aliases`](https://github.com/yiisoft/aliases)
 ```php
     MessageReaderInterface::class => [
         'class' => MessageSource::class,
