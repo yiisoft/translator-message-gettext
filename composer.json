@@ -1,7 +1,7 @@
 {
     "name": "yiisoft/translator-message-gettext",
     "type": "library",
-    "description": "Yii translator gettext message storage",
+    "description": "Yii Translator gettext Message Storage",
     "keywords": [
         "i18n",
         "translation",

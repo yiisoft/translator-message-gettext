@@ -12,12 +12,12 @@
          executionOrder="random"
          resolveDependencies="true">
     <php>
-        <ini name="error_reporting" value="-1" />
+        <ini name="error_reporting" value="-1"/>
     </php>
 
     <testsuites>
-        <testsuite name="Yii translator gettext message storage tests">
-            <directory>./tests/</directory>
+        <testsuite name="Yii Translator gettext Message Storage tests">
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
