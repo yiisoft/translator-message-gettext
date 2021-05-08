@@ -46,6 +46,7 @@ final class MessageSource implements MessageReaderInterface
     private function bindDomain(string $category): void
     {
         if (!isset($this->boundDomains[$category])) {
+            /** @psalm-suppress UnusedFunctionCall */
             bindtextdomain($category, $this->path);
         }
     }
