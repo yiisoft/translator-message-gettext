@@ -1,4 +1,4 @@
-# Yii translator gettext message storage Change Log
+# Yii Translator gettext Message Storage Change Log
 
 ## 1.0.0 under development
 
