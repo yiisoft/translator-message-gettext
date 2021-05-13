@@ -14,6 +14,9 @@ final class MessageSource implements MessageReaderInterface
     private string $path;
     private array $boundDomains = [];
 
+    /**
+     * @param string $path The directory path.
+     */
     public function __construct(string $path)
     {
         if (!is_dir($path)) {
