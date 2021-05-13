@@ -20,7 +20,7 @@
     },
     "require": {
         "php": "^7.4|^8.0",
-        "yiisoft/translator": "3.0.x-dev",
+        "yiisoft/translator": "^1.0",
         "ext-gettext": "*"
     },
     "require-dev": {
@@ -54,8 +54,6 @@
     "config": {
         "sort-packages": true
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "scripts": {
         "test": "phpunit --testdox --no-interaction",
         "test-watch": "phpunit-watcher watch"
