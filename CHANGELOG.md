@@ -3,7 +3,7 @@
 
 ## 1.0.1 under development
 
-- Enh #32: Remove phan/phan (darkdef)
+- no changes in this release.
 
 ## 1.0.0 May 13, 2021
 
