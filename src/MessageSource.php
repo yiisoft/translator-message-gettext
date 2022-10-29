@@ -11,18 +11,17 @@ use function is_int;
 
 final class MessageSource implements MessageReaderInterface
 {
-    private string $path;
     private array $boundDomains = [];
 
     /**
      * @param string $path The directory path.
      */
-    public function __construct(string $path)
-    {
+    public function __construct(
+        private string $path
+    ) {
         if (!is_dir($path)) {
             throw new RuntimeException(sprintf('Directory "%s" does not exist.', $path));
         }
-        $this->path = $path;
     }
 
     /**
