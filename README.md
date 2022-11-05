@@ -20,7 +20,7 @@ with [`yiisoft/translator`](https://github.com/yiisoft/translator) package.
 
 ## Requirements
 
-- PHP 7.4 or higher.
+- PHP 8.0 or higher.
 - `gettext` PHP extension.
 
 ## Installation

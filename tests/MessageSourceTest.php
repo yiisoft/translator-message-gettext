@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yiisoft\Translator\Message\Gettext\Tests;
 
 use PHPUnit\Framework\TestCase;
+use RuntimeException;
 use Yiisoft\Translator\Message\Gettext\MessageSource;
 
 final class MessageSourceTest extends TestCase
@@ -55,13 +56,13 @@ final class MessageSourceTest extends TestCase
 
     public function testIsDir(): void
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         new MessageSource(__DIR__ . 'NOT_EXIST_DIRECTORY');
     }
 
     public function testNonExistingLocale(): void
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
         $category = 'messages';
         $locale = 'FAIL_LOCALE';
         $messageSource = new MessageSource(__DIR__ . '/data/locale');
@@ -71,12 +72,21 @@ final class MessageSourceTest extends TestCase
 
     public function testReadMessages(): void
     {
-        $this->expectException(\RuntimeException::class);
+        $this->expectException(RuntimeException::class);
 
         $category = 'messages';
         $locale = 'FAIL_LOCALE';
         $messageSource = new MessageSource(__DIR__ . '/data/locale');
 
         $messageSource->getMessages($category, $locale);
+    }
+
+    public function testNotExistDirectory(): void
+    {
+        $directory = __DIR__ . '/non-exists-directory';
+
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessage('Directory "' . $directory . '" does not exist.');
+        new MessageSource($directory);
     }
 }
