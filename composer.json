@@ -20,9 +20,9 @@
         "source": "https://github.com/yiisoft/translator-message-gettext"
     },
     "require": {
-        "php": "^7.4|^8.0",
-        "yiisoft/translator": "^1.0",
-        "ext-gettext": "*"
+        "php": "^8.0",
+        "ext-gettext": "*",
+        "yiisoft/translator": "^1.0"
     },
     "require-dev": {
         "maglnet/composer-require-checker": "^4.2",
@@ -40,14 +40,6 @@
     "autoload-dev": {
         "psr-4": {
             "Yiisoft\\Translator\\Message\\Gettext\\Tests\\": "tests"
-        }
-    },
-    "extra": {
-        "config-plugin-options": {
-            "source-directory": "config"
-        },
-        "config-plugin": {
-            "common": "common.php"
         }
     },
     "config": {

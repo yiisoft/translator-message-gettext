@@ -20,7 +20,7 @@ with [`yiisoft/translator`](https://github.com/yiisoft/translator) package.
 
 ## Requirements
 
-- PHP 7.4 or higher.
+- PHP 8.0 or higher.
 - `gettext` PHP extension.
 
 ## Installation
@@ -28,40 +28,7 @@ with [`yiisoft/translator`](https://github.com/yiisoft/translator) package.
 The package could be installed with composer:
 
 ```shell
-composer require yiisoft/translator-message-gettext --prefer-dist
-```
-
-## Configuration
-
-In case you use [`yiisoft/config`](http://github.com/yiisoft/config), you will get configuration automatically. If not, the following DI container configuration is necessary:
-
-```php
-<?php
-
-declare(strict_types=1);
-
-use Yiisoft\Translator\MessageReaderInterface;
-use Yiisoft\Translator\Message\Gettext\MessageSource;
-use Yiisoft\Aliases\Aliases;
-
-return [
-    MessageReaderInterface::class => [
-        'class' => MessageSource::class,
-        '__construct()' => [
-            DynamicReference::to(fn (Aliases $aliases) => $aliases->get('@message')),
-        ],
-    ],
-];
-```
-
-**Note:**  You can use absolute path to translation files in case you don't want to use [`yiisoft/aliases`](https://github.com/yiisoft/aliases)
-```php
-    MessageReaderInterface::class => [
-        'class' => MessageSource::class,
-        '__construct()' => [
-            '/var/www/app/resourse/messages',
-        ],
-    ],
+composer require yiisoft/translator-message-gettext
 ```
 
 ### Attention
@@ -71,6 +38,20 @@ When using gettext, `locale` depends on your OS requirement:
 * for Linux  `'locale' => 'en_US.UTF-8'`
 
 ## General usage
+
+The package is meant to be used with [`yiisoft/translator`](https://github.com/yiisoft/translator):
+
+```php
+use Yiisoft\Translator\CategorySource;
+use Yiisoft\Translator\Message\Gettext\MessageSource;
+
+$categorySource = new CategorySource(
+    'my-category',
+    new MessageSource('/path/to/messages'),
+);
+```
+
+The examples below are about using it separately.
 
 ### Create of instance of MessageSource
 
