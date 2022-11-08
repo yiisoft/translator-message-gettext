@@ -1,5 +1,9 @@
 # Yii Translator gettext Message Storage Change Log
 
+## 1.1.1 under development
+
+- no changes in this release.
+
 ## 1.1.0 November 08, 2022
 
 - Chg #40: Remove package configuration (@vjik)
