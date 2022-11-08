@@ -1,6 +1,6 @@
 # Yii Translator gettext Message Storage Change Log
 
-## 1.0.1 under development
+## 1.1.0 November 08, 2022
 
 - Chg #40: Remove package configuration (@vjik)
 - Enh #41: Raise minimum PHP version to `^8.0` (@vjik)
