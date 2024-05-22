@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px">
+        <img src="https://yiisoft.github.io/docs/images/yii_logo.svg" height="100px" alt="Yii">
     </a>
     <h1 align="center">Yii Translator gettext Message Storage</h1>
     <br>
@@ -34,8 +34,8 @@ composer require yiisoft/translator-message-gettext
 ### Attention
 
 When using gettext, `locale` depends on your OS requirement:
-* for Windows `'locale' => 'en-US.UTF-8'`
-* for Linux  `'locale' => 'en_US.UTF-8'`
+- for Windows `'locale' => 'en-US.UTF-8'`
+- for Linux  `'locale' => 'en_US.UTF-8'`
 
 ## General usage
 
