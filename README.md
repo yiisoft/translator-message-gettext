@@ -8,7 +8,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/translator-message-gettext/v/stable.png)](https://packagist.org/packages/yiisoft/translator-message-gettext)
 [![Total Downloads](https://poser.pugx.org/yiisoft/translator-message-gettext/downloads.png)](https://packagist.org/packages/yiisoft/translator-message-gettext)
-[![Build Status](https://travis-ci.com/yiisoft/translator-message-gettext.svg?branch=master)](https://travis-ci.com/yiisoft/translator-message-gettext)
+[![Build status](https://github.com/yiisoft/translator-message-gettext/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/yiisoft/translator-message-gettext/actions/workflows/build.yml?query=branch%3Amaster)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/yiisoft/translator-message-gettext/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/translator-message-gettext/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/yiisoft/translator-message-gettext/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/yiisoft/translator-message-gettext/?branch=master)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fyiisoft%2Ftranslator-message-gettext%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/yiisoft/translator-message-gettext/master)
