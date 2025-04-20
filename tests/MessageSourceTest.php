@@ -79,6 +79,7 @@ final class MessageSourceTest extends TestCase
             [
                 'en_US',
                 static function ($locale) {
+                    if (DIRECTORY_SEPARATOR === '\\') { return $locale;}
                     return str_replace('-', '_', explode('.', $locale)[0]);
                 },
                 'HELLO',
@@ -87,6 +88,7 @@ final class MessageSourceTest extends TestCase
             [
                 'en-US',
                 static function ($locale) {
+                    if (DIRECTORY_SEPARATOR === '\\') { return $locale;}
                     return str_replace('-', '_', explode('.', $locale)[0]);
                 },
                 'HELLO',
@@ -95,6 +97,7 @@ final class MessageSourceTest extends TestCase
             [
                 'en-US.UTF-8',
                 static function ($locale) {
+                    if (DIRECTORY_SEPARATOR === '\\') { return $locale;}
                     return str_replace('-', '_', explode('.', $locale)[0]);
                 },
                 'HELLO',
