@@ -14,3 +14,6 @@ msgstr ""
 
 msgid "HELLO_WORLD_UTF8"
 msgstr "Hello world (UTF-8)"
+
+msgid "HELLO"
+msgstr "Hello (UTF-8)"
