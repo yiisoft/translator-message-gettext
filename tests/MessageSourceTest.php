@@ -48,7 +48,7 @@ final class MessageSourceTest extends TestCase
         return [
             [
                 'en-GB-oed',
-                ['en-GB-oed' => DIRECTORY_SEPARATOR === '\\' ? 'en-US.UTF-8' : 'en_US.UTF-8'],
+                ['en-GB-oed' => DIRECTORY_SEPARATOR === '\\' ? 'en-US.UTF8' : 'en_US.UTF-8'],
                 'HELLO',
                 'Hello (UTF-8)',
             ],
