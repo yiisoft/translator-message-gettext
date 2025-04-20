@@ -60,6 +60,20 @@ The examples below are about using it separately.
 $messageSource = new \Yiisoft\Translator\Message\Gettext\MessageSource($path);
 ```
 
+Mode of translations
+```php
+/** @var string $path - path to your gettext storage */
+$messageSource = new \Yiisoft\Translator\Message\Gettext\MessageSource($path, true /* strictMode */);
+```
+
+In normal mode, if ID of message cannot be found - will be returned ID as translation string.
+In strict mode - will be returned NULL.
+
+```php
+/** @var string $path - path to your gettext storage */
+$messageSource = new \Yiisoft\Translator\Message\Gettext\MessageSource($path);
+```
+
 ### Read message without `yiisoft/translator` package
 
 ```php

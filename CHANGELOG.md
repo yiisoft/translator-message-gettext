@@ -3,6 +3,7 @@
 ## 1.1.1 under development
 
 - Enh #55: Add support for `yiisoft/translator` version `^3.0` (@vjik)
+- Enh #75: Add strict mode for translations (@darkdef)
 
 ## 1.1.0 November 08, 2022
 
