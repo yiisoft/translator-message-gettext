@@ -24,9 +24,7 @@ name: build
 jobs:
   phpunit:
     steps:
-      - name: Generate locale
-        run: sudo locale-gen en_IL
-      - name: Install phpunit
+      run: sudo locale-gen en_IL
       uses: yiisoft/actions/.github/workflows/phpunit.yml@master
       with:
         extensions: gettext
