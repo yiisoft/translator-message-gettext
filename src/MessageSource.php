@@ -56,7 +56,7 @@ final class MessageSource implements MessageReaderInterface
         }
     }
 
-    private function getMessageInternal(string $id, string $category, string $locale, array $parameters = []): ?string
+    private function getMessageInternal(string $id, string $category, string $locale, array $parameters = []): string
     {
         $this->bindDomain($category);
         $this->setLocale($locale);
