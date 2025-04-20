@@ -120,7 +120,7 @@ final class MessageSourceTest extends TestCase
     public function testReadWithoutCodepage(string $expected, string $id, array $params = []): void
     {
         $category = 'messages';
-        $locale = 'en_US';
+        $locale = DIRECTORY_SEPARATOR === '\\' ? 'en-US' : 'en_US';
         $messageSource = new MessageSource(__DIR__ . '/data/locale');
 
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
