@@ -13,10 +13,13 @@ msgstr ""
 "Language: ru\n"
 
 msgid "HELLO_WORLD"
-msgstr "Hello world"
+msgstr "Hello world (EN)"
 
 msgid "HELLO"
-msgstr "Hello (EN_US)"
+msgstr "Hello (EN)"
+
+msgid "HELLO_WORLD_EN"
+msgstr "Hello world (EN only)"
 
 msgid "TEST_TRANSLATION"
 msgstr "Test translation"

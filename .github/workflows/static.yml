@@ -39,3 +39,4 @@ jobs:
         ['ubuntu-latest']
       php: >-
         ['8.0']
+      composer-command: sudo locale-gen en_US && sudo locale-gen en_US.UTF-8 && composer update --prefer-dist --no-interaction --no-progress --optimize-autoloader --ansi
