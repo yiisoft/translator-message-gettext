@@ -17,7 +17,8 @@ final class MessageSource implements MessageReaderInterface
      * @param string $path The directory path.
      */
     public function __construct(
-        private string $path
+        private string $path,
+        private bool $strictMode = false
     ) {
         if (!is_dir($path)) {
             throw new RuntimeException(sprintf('Directory "%s" does not exist.', $path));
@@ -31,13 +32,16 @@ final class MessageSource implements MessageReaderInterface
      */
     public function getMessage(string $id, string $category, string $locale, array $parameters = []): ?string
     {
-        $this->bindDomain($category);
-        $this->setLocale($locale);
-        $n = current($parameters);
-        if (is_int($n) === false) {
-            return dgettext($category, $id);
+        $result = $this->getMessageInternal($id, $category, $locale, $parameters);
+        if (!$this->strictMode) {
+            return $result;
         }
-        return dngettext($category, $id, $id, $n);
+
+        if ($result === $id) {
+            return null;
+        }
+
+        return $result;
     }
 
     public function getMessages(string $category, string $locale): array
@@ -52,8 +56,20 @@ final class MessageSource implements MessageReaderInterface
         }
     }
 
+    private function getMessageInternal(string $id, string $category, string $locale, array $parameters = []): ?string
+    {
+        $this->bindDomain($category);
+        $this->setLocale($locale);
+        $n = current($parameters);
+        if (is_int($n) === false) {
+            return dgettext($category, $id);
+        }
+        return dngettext($category, $id, $id, $n);
+    }
+
     private function setLocale(string $locale): void
     {
+        putenv('LANGUAGE=' . $locale);
         if (!setlocale(LC_ALL, $locale)) {
             throw new RuntimeException(sprintf('Locale "%s" cannot be set.', $locale));
         }

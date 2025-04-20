@@ -42,6 +42,27 @@ final class MessageSourceTest extends TestCase
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
     }
 
+    public function generateTranslationsStrictData(): array
+    {
+        return [
+            [null, 'UNKNOWN_TEXT'],
+            ['Hello world', 'HELLO_WORLD'],
+            ['{n} day(1,21,31)', '{n} day'],
+        ];
+    }
+
+    /**
+     * @dataProvider generateTranslationsStrictData
+     */
+    public function testStrictRead(?string $expected, string $id, array $params = []): void
+    {
+        $category = 'messages';
+        $locale = DIRECTORY_SEPARATOR === '\\' ? 'en-US.UTF-8' : 'en_US.UTF-8';
+        $messageSource = new MessageSource(__DIR__ . '/data/locale', true);
+
+        $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale, $params));
+    }
+
     /**
      * @dataProvider generateTranslationsData
      */
