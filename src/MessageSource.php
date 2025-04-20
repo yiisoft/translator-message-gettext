@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Yiisoft\Translator\Message\Gettext;
 
+use Closure;
 use RuntimeException;
 use Yiisoft\Translator\MessageReaderInterface;
 
 use function is_int;
-use Closure;
 
 final class MessageSource implements MessageReaderInterface
 {
