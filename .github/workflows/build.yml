@@ -23,13 +23,12 @@ name: build
 
 jobs:
   phpunit:
-    runs-on: ubuntu-latest
-
     steps:
-      - uses: yiisoft/actions/.github/workflows/phpunit.yml@master
-        with:
-          extensions: gettext
-          os: >-
-            ['ubuntu-latest', 'windows-latest']
-          php: >-
-            ['8.0', '8.1']
+      - run: sudo locale-gen en_GB.UTF-8
+    uses: yiisoft/actions/.github/workflows/phpunit.yml@master
+    with:
+      extensions: gettext
+      os: >-
+        ['ubuntu-latest', 'windows-latest']
+      php: >-
+        ['8.0', '8.1']
