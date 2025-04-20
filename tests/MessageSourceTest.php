@@ -65,19 +65,19 @@ final class MessageSourceTest extends TestCase
                 'Hello world',
             ],
             [
-                'en_US',
+                DIRECTORY_SEPARATOR === '\\' ? 'en-US' : 'en_US',
                 [],
                 'HELLO_WORLD_UTF8',
                 'HELLO_WORLD_UTF8',
             ],
             [
-                'en_US',
+                DIRECTORY_SEPARATOR === '\\' ? 'en-US' : 'en_US',
                 null,
                 'HELLO_WORLD_UTF8',
                 'HELLO_WORLD_UTF8',
             ],
             [
-                'en_US',
+                DIRECTORY_SEPARATOR === '\\' ? 'en-US' : 'en_US',
                 static function ($locale) {
                     if (DIRECTORY_SEPARATOR === '\\') { return $locale;}
                     return str_replace('-', '_', explode('.', $locale)[0]);
