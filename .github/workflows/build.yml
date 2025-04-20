@@ -23,13 +23,14 @@ name: build
 
 jobs:
   phpunit:
+    uses: yiisoft/actions/.github/workflows/phpunit.yml@master
+    with:
+      extensions: gettext
+      os: >-
+        ['ubuntu-latest', 'windows-latest']
+      php: >-
+        ['8.0', '8.1']
+
     steps:
-      uses: yiisoft/actions/.github/workflows/phpunit.yml@master
-      with:
-        extensions: gettext
-        os: >-
-          ['ubuntu-latest', 'windows-latest']
-        php: >-
-          ['8.0', '8.1']
-      run: |
-        sudo locale-gen en_IL
+      - name: Generate locale
+        run: sudo locale-gen en_IL
