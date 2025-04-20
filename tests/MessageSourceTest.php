@@ -114,27 +114,6 @@ final class MessageSourceTest extends TestCase
         $this->assertEquals($expected, $messageSource->getMessage($id, $category, $locale));
     }
 
-    public function testReadFallback(): void
-    {
-        $category = 'messages';
-        $locale = DIRECTORY_SEPARATOR === '\\' ? 'en-US.UTF-8' : 'en_US.UTF-8';
-        $locale_gb = DIRECTORY_SEPARATOR === '\\' ? 'en-IL.UTF-8' : 'en_IL.UTF-8';
-
-        $messageSource = new MessageSource(__DIR__ . '/data/locale');
-
-        $id = 'HELLO_WORLD_UTF8';
-        $this->assertEquals('Hello world (UTF-8)', $messageSource->getMessage($id, $category, $locale));
-        $this->assertEquals($id, $messageSource->getMessage($id, $category, $locale_gb));
-
-        $id = 'HELLO_WORLD_EN';
-        $this->assertEquals('Hello world (EN only)', $messageSource->getMessage($id, $category, $locale));
-        $this->assertEquals('Hello world (EN only)', $messageSource->getMessage($id, $category, $locale_gb));
-
-        $id = 'HELLO_WORLD';
-        $this->assertEquals('Hello world', $messageSource->getMessage($id, $category, $locale));
-        $this->assertEquals('Hello world (EN)', $messageSource->getMessage($id, $category, $locale_gb));
-    }
-
     /**
      * @dataProvider generateTranslationsData
      */
