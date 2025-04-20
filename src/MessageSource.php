@@ -16,7 +16,7 @@ final class MessageSource implements MessageReaderInterface
 
     /**
      * @param string $path The directory path.
-     * @param string[]|Closure|null $localesMap Mapping for locales intl->gettext. For example [ 'ru-RU.UTF8' => 'ru_RU' ]
+     * @param Closure|string[]|null $localesMap Mapping for locales intl->gettext. For example [ 'ru-RU.UTF8' => 'ru_RU' ]
      */
     public function __construct(
         private string $path,
@@ -58,12 +58,10 @@ final class MessageSource implements MessageReaderInterface
     private function setLocale(string $locale): void
     {
         if ($this->localesMap instanceof Closure) {
-            $locale = call_user_func($this->localesMap, $locale);
+            $locale = ($this->localesMap)($locale);
         } else {
             $locale = $this->localesMap[$locale] ?? $locale;
         }
-
-        putenv('LANGUAGE='.$locale);
 
         if (!setlocale(LC_ALL, $locale)) {
             throw new RuntimeException(sprintf('Locale "%s" cannot be set.', $locale));
