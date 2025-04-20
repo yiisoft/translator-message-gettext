@@ -69,6 +69,16 @@ $messageSource = new \Yiisoft\Translator\Message\Gettext\MessageSource($path, tr
 In normal mode, if ID of message cannot be found - will be returned ID as translation string.
 In strict mode - will be returned NULL.
 
+#### Hack
+For any version of Windows/Linux need set environment variable with locale for correct working with gettext
+```php
+$locale = "en_US.UTF-8";
+
+putenv('LC_ALL=' . $locale);
+putenv('LANG=' . $locale);
+putenv('LANGUAGE=' . $locale);
+```
+
 ```php
 /** @var string $path - path to your gettext storage */
 $messageSource = new \Yiisoft\Translator\Message\Gettext\MessageSource($path);
