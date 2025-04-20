@@ -23,12 +23,11 @@ name: build
 
 jobs:
   phpunit:
-    steps:
-      - uses: yiisoft/actions/.github/workflows/phpunit.yml@master
-        with:
-          extensions: gettext
-          os: >-
-            ['ubuntu-latest', 'windows-latest']
-          php: >-
-            ['8.0', '8.1']
+    - uses: yiisoft/actions/.github/workflows/phpunit.yml@master
+      with:
+        extensions: gettext
+        os: >-
+          ['ubuntu-latest', 'windows-latest']
+        php: >-
+          ['8.0', '8.1']
 
