@@ -30,3 +30,7 @@ jobs:
         ['ubuntu-latest', 'windows-latest']
       php: >-
         ['8.0', '8.1']
+      steps:
+        - name: Set locale to en-IL
+          run: |
+            sudo locale-gen en_IL
