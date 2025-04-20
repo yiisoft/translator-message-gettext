@@ -58,7 +58,7 @@ final class MessageSource implements MessageReaderInterface
     private function setLocale(string $locale): void
     {
         if ($this->localesMap instanceof Closure) {
-            $locale = ($this->localesMap)($locale);
+            $locale = (string) ($this->localesMap)($locale);
         } else {
             $locale = $this->localesMap[$locale] ?? $locale;
         }
