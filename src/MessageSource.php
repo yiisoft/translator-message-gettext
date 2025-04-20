@@ -15,9 +15,11 @@ final class MessageSource implements MessageReaderInterface
 
     /**
      * @param string $path The directory path.
+     * @param string[] $localesMap Mapping for locales intl->gettext. For example [ 'ru-RU.UTF8' => 'ru_RU' ]
      */
     public function __construct(
-        private string $path
+        private string $path,
+        private array $localesMap = []
     ) {
         if (!is_dir($path)) {
             throw new RuntimeException(sprintf('Directory "%s" does not exist.', $path));
@@ -32,7 +34,7 @@ final class MessageSource implements MessageReaderInterface
     public function getMessage(string $id, string $category, string $locale, array $parameters = []): ?string
     {
         $this->bindDomain($category);
-        $this->setLocale($locale);
+        $this->setLocale($this->localesMap[$locale] ?? $locale);
         $n = current($parameters);
         if (is_int($n) === false) {
             return dgettext($category, $id);
