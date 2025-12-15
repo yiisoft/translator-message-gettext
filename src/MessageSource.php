@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yiisoft\Translator\Message\Gettext;
 
+use Closure;
 use RuntimeException;
 use Yiisoft\Translator\MessageReaderInterface;
 
@@ -15,9 +16,11 @@ final class MessageSource implements MessageReaderInterface
 
     /**
      * @param string $path The directory path.
+     * @param Closure|string[]|null $localesMap Mapping for locales intl->gettext. For example [ 'ru-RU.UTF8' => 'ru_RU' ]
      */
     public function __construct(
-        private string $path
+        private string $path,
+        private array|Closure|null $localesMap = null
     ) {
         if (!is_dir($path)) {
             throw new RuntimeException(sprintf('Directory "%s" does not exist.', $path));
@@ -54,6 +57,12 @@ final class MessageSource implements MessageReaderInterface
 
     private function setLocale(string $locale): void
     {
+        if ($this->localesMap instanceof Closure) {
+            $locale = (string) ($this->localesMap)($locale);
+        } else {
+            $locale = $this->localesMap[$locale] ?? $locale;
+        }
+
         if (!setlocale(LC_ALL, $locale)) {
             throw new RuntimeException(sprintf('Locale "%s" cannot be set.', $locale));
         }
