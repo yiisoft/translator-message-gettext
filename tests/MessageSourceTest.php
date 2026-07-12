@@ -8,6 +8,8 @@ use PHPUnit\Framework\TestCase;
 use RuntimeException;
 use Yiisoft\Translator\Message\Gettext\MessageSource;
 
+use const DIRECTORY_SEPARATOR;
+
 final class MessageSourceTest extends TestCase
 {
     public function generateTranslationsData(): array
