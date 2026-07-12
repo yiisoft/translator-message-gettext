@@ -8,6 +8,9 @@ use RuntimeException;
 use Yiisoft\Translator\MessageReaderInterface;
 
 use function is_int;
+use function sprintf;
+
+use const LC_ALL;
 
 final class MessageSource implements MessageReaderInterface
 {
@@ -17,7 +20,7 @@ final class MessageSource implements MessageReaderInterface
      * @param string $path The directory path.
      */
     public function __construct(
-        private string $path
+        private string $path,
     ) {
         if (!is_dir($path)) {
             throw new RuntimeException(sprintf('Directory "%s" does not exist.', $path));

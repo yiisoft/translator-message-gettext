@@ -4,6 +4,7 @@
 
 - Enh #55: Add support for `yiisoft/translator` version `^3.0` (@vjik)
 - Enh #85: Minor refactor `MessageSource::setLocale()` method (@vjik)
+- Enh #86: Explicitly import functions and constants in "use" section (@mspirkov)
 
 ## 1.1.0 November 08, 2022
 
