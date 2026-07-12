@@ -4,7 +4,6 @@ on:
   pull_request:
     paths: &paths
       - 'src/**'
-      - 'config/**'
       - '.github/workflows/static.yml'
       - 'psalm*.xml'
       - 'composer.json'
