@@ -54,7 +54,7 @@ final class MessageSource implements MessageReaderInterface
 
     private function setLocale(string $locale): void
     {
-        if (!setlocale(LC_ALL, $locale)) {
+        if (setlocale(LC_ALL, $locale) === false) {
             throw new RuntimeException(sprintf('Locale "%s" cannot be set.', $locale));
         }
     }
