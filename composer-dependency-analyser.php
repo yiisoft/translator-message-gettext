@@ -9,5 +9,4 @@ return (new Configuration())
     ->disableComposerAutoloadPathScan()
     ->setFileExtensions(['php'])
     ->addPathToScan(__DIR__ . '/src', isDev: false)
-    ->addPathToScan(__DIR__ . '/tests', isDev: true)
-    ->ignoreErrorsOnExtension('ext-gettext', [ErrorType::UNUSED_DEPENDENCY]);
+    ->addPathToScan(__DIR__ . '/tests', isDev: true);
